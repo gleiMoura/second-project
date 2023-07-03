@@ -1,6 +1,7 @@
-import { MouseEventHandler, useState } from "react";
+import { MouseEventHandler, useState, memo, useCallback } from "react";
 
-const Button = ({ increaseValue, name }: { increaseValue: MouseEventHandler, name: string }) => {
+const Button = memo(({ increaseValue, name }: { increaseValue: MouseEventHandler, name: string }) => {
+    console.log("filho renderizou")
     return (
         <button
             onClick={increaseValue}
@@ -16,17 +17,20 @@ const Button = ({ increaseValue, name }: { increaseValue: MouseEventHandler, nam
         </button>
     )
 }
+)
 
 const Home = () => {
     const [counter, setCounter] = useState<number>(0);
+    console.log("pai renderizou")
 
-    const handleChangeCounter = () => {
-        setCounter(counter + 1);
-    };
+    const handleChangeCounter = useCallback(() => {
+        setCounter((c) => c + 1);
+    }, []);
 
-    const handleClearCounter = () => {
+    const handleClearCounter = useCallback(() => {
         setCounter(0)
-    }
+    }, []); 
+    
     return (
         <div style={{
             width: "100wh",
