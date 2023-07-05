@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import Posts from "../Posts";
 
-const UsingMemo = () => {
+const UsingMemo: FC = () => {
     const [posts, setPosts] = useState([]);
     const [value, setValue] = useState("");
 

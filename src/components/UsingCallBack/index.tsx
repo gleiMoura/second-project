@@ -1,7 +1,7 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, FC } from "react";
 import Button from "../Button";
 
-const UsingCallback = () => {
+const UsingCallback: FC = () => {
     const [counter, setCounter] = useState<number>(0);
     console.log("pai renderizou")
 

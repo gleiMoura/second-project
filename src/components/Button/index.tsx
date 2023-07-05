@@ -1,6 +1,11 @@
-import { MouseEventHandler, memo } from "react";
+import { MouseEventHandler, memo, FC } from "react";
 
-const Button = memo(({ increaseValue, name }: { increaseValue: MouseEventHandler, name: string }) => {
+interface ButtonProps {
+    increaseValue: MouseEventHandler;
+    name: string
+}
+
+const Button: FC<ButtonProps> = memo(({ increaseValue, name }) => {
     console.log("filho renderizou")
     return (
         <button

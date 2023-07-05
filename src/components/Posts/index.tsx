@@ -1,8 +1,12 @@
-import { useMemo } from "react"
+import { FC, useMemo } from "react"
 import Post from "../Post"
 import { PostType } from "../../interfaces"
 
-const Posts = ({ posts }: { posts: PostType[] }) => {
+interface PostsProps {
+    posts: PostType[];
+}
+
+const Posts: FC<PostsProps> = ({ posts }: { posts: PostType[] }) => {
     return (
         useMemo(() => {
             return (

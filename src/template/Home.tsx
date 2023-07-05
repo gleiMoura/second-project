@@ -1,5 +1,5 @@
 // import UsingCallback from "../components/UsingCallBack";
-import UsingMemo from "../components/UsingMemo";
+// import UsingMemo from "../components/UsingMemo";
 const Home = () => {
     return (
         <div style={{
@@ -11,7 +11,7 @@ const Home = () => {
             alignItems: "center",
         }}>
             {/* <UsingCallback /> */}
-            <UsingMemo />
+            {/* <UsingMemo /> */}
         </div>
     )
 };
