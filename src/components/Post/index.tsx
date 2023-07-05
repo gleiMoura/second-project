@@ -1,6 +1,7 @@
 import { PostType } from "../../interfaces";
 
 const Post = ({ index, post }: { index: number, post: PostType }) => {
+    console.log("Filho Renderizou")
     return (
         <div key={index + "post"} style={{
             background: "#ff2",

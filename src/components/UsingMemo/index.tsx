@@ -1,14 +1,21 @@
 import { useEffect, useState } from "react";
-import Post from "../Post";
-import { PostType } from "../../interfaces";
+import Posts from "../Posts";
 
 const UsingMemo = () => {
     const [posts, setPosts] = useState([]);
+    const [value, setValue] = useState("");
+
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(r => r.json())
-            .then(r => setPosts(r))
+        setTimeout(() => {
+            fetch('https://jsonplaceholder.typicode.com/posts')
+                .then(r => r.json())
+                .then(r => setPosts(r))
+        }, 5000)
     }, []);
+
+    const onChangeValue = (e: any) => {
+        setValue(e.target.value)
+    }
 
     console.log("Pai renderizou")
 
@@ -25,9 +32,13 @@ const UsingMemo = () => {
             alignItems: "center",
             padding: "10px",
         }}>
-            {posts.map((post: PostType, index: number) => {
-                return <Post index={index} post={post} />
-            })}
+            <input
+                type="search"
+                value={value}
+                onChange={onChangeValue}
+            />
+            <Posts posts={posts} />
+            {posts.length === 0 && <p>Ainda não existem posts!</p>}
         </div>
     )
 };
