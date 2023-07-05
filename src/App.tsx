@@ -1,8 +1,11 @@
 import Home from "./template/Home";
+import ContextComponent from "./context/CreatingContext";
 
 function App() {
   return (
-    <Home />
+    <ContextComponent>
+      <Home />
+    </ContextComponent>
   )
 }
 
