@@ -8,7 +8,7 @@ interface GlobalContextType {
     setState: Dispatch<SetStateAction<globalType>>
 }
 
-const GlobalContext = createContext<GlobalContextType>({
+export const GlobalContext = createContext<GlobalContextType>({
     state: globalState,
     setState: () => { }
 });

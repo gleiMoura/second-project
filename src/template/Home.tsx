@@ -1,6 +1,10 @@
 // import UsingCallback from "../components/UsingCallBack";
-// import UsingMemo from "../components/UsingMemo";
+import { useContext } from "react";
+import UsingMemo from "../components/UsingMemo";
+import { GlobalContext } from "../context/CreatingContext";
 const Home = () => {
+    const context = useContext(GlobalContext);
+    const { state } = context;
     return (
         <div style={{
             width: "100wh",
@@ -10,8 +14,10 @@ const Home = () => {
             flexDirection: "column",
             alignItems: "center",
         }}>
+            <h1>{state.title}</h1>
+            <p>{state.body}</p>
             {/* <UsingCallback /> */}
-            {/* <UsingMemo /> */}
+            <UsingMemo />
         </div>
     )
 };
